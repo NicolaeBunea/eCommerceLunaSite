@@ -9,7 +9,6 @@ public class TestBase {
 
     private WebDriver driver;
     private Properties prop;
-    @Before
     public void initiateDriver(){
         String browserName = prop.getProperty("browser");
         if (browserName.equals("chrome")){
