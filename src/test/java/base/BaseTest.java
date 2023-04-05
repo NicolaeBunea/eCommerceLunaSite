@@ -2,32 +2,37 @@ package base;
 
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import utility.TestUtil;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
 public class BaseTest {
 
-    private WebDriver driver;
-    private Properties prop;
+    public WebDriver driver;
+    public Properties prop;
 
     @Before
     public  void initiateDriver(){
-        String browserName = prop.getProperty("browser");
+        System.setProperty("webdriver.chrome.driver","C:\\Automation\\chromedriver.exe");
 
-        if (browserName.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver","C:\\Automation\\chromedriver.exe");
-            driver= new ChromeDriver();
-        }
-        TestUtil util = new TestUtil();
+        ChromeOptions  chromeOptions=new ChromeOptions();
+        driver= new ChromeDriver(chromeOptions);
+        driver.get("https://magento.softwaretestingboard.com/");
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(util.Page_Time_Out));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(util.Implicit_Wait));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+    }
 
-        driver.get(prop.getProperty("url"));
+    public WebDriver getDriver(){
+        return driver;
     }
 
 

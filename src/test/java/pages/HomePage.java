@@ -1,6 +1,25 @@
 package pages;
 
 import base.BaseTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BaseTest {
+public class HomePage extends BasePage {
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
+    @FindBy (xpath ="//a[contains(text(),'Sign In')]")
+    private WebElement signInButton;
+    @FindBy(xpath = "(//a[normalize-space()='Create an Account'])[1]")
+    private WebElement createAccButton;
+
+
+    public void clickSignIn(){
+        elementMethods.clickElement(signInButton);
+    }
+    public void clickCreateAcc(){
+        elementMethods.clickElement(createAccButton);
+    }
 }
