@@ -27,8 +27,8 @@ public class CreateAccountPage extends BasePage {
     @FindBy(xpath = "//button[@title='Create an Account']")
     WebElement createAccountButton;
 
-    public void createAccountValid(String pagina,String fName, String lName,String email,String Pass, String confPass){
-        pageMethods.validateTitlePage(pagina);
+    public void createAccountValid(String pagina1,String fName, String lName,String email,String Pass, String confPass, String pagina2){
+        pageMethods.validateTitlePage(pagina1);
         elementMethods.fillElement(firstName,fName);
         elementMethods.fillElement(lastName,lName);
         elementMethods.clickElement(signUpNews);
@@ -36,6 +36,8 @@ public class CreateAccountPage extends BasePage {
         elementMethods.fillElement(password,Pass);
         elementMethods.fillElement(passConf,confPass);
         elementMethods.clickElement(createAccountButton);
+        pageMethods.validateTitlePage(pagina2);
+        //dont forget: mesajul de eroare
 
 
     }

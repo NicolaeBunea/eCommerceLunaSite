@@ -15,6 +15,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "(//a[normalize-space()='Create an Account'])[1]")
     private WebElement createAccButton;
 
+    @FindBy(xpath = "(//span[@class='logged-in'][normalize-space()='Welcome, nicu bunea!'])[1]")
 
     public void clickSignIn(){
         elementMethods.clickElement(signInButton);

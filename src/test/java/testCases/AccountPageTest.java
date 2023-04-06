@@ -13,7 +13,7 @@ public class AccountPageTest extends BaseTest {
         homePage.clickCreateAcc();
 
         CreateAccountPage createAccountPage=new CreateAccountPage(getDriver());
-        createAccountPage.createAccountValid("Create New Customer Account","oana","hoidrag","oana.h@yahoo.com",
-                "Test@1234","Test@1234");
+        createAccountPage.createAccountValid("Create New Customer Account","ana","oidrag","ana.h@yahoo.com",
+                "Test@1234","Test@1234","My Account");
     }
 }
