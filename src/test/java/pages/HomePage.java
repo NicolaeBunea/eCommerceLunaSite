@@ -10,17 +10,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    @FindBy (xpath ="//a[contains(text(),'Sign In')]")
-    private WebElement signInButton;
-    @FindBy(xpath = "(//a[normalize-space()='Create an Account'])[1]")
-    private WebElement createAccButton;
-
     @FindBy(xpath = "(//span[@class='logged-in'][normalize-space()='Welcome, nicu bunea!'])[1]")
+    private WebElement welcomeUser;
 
-    public void clickSignIn(){
-        elementMethods.clickElement(signInButton);
-    }
-    public void clickCreateAcc(){
-        elementMethods.clickElement(createAccButton);
-    }
 }

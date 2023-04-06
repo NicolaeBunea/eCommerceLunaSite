@@ -1,5 +1,6 @@
 package base;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,6 +35,11 @@ public class BaseTest {
     public WebDriver getDriver(){
         return driver;
     }
+
+    /*@After
+    public void closePage(){
+        driver.close();
+    }*/
 
 
 

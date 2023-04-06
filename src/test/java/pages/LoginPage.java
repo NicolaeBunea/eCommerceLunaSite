@@ -26,15 +26,31 @@ public class LoginPage extends BasePage {
     private WebElement errorMsg;
     @FindBy(className ="captcha-img" )
     private WebElement captchaElement;
+    @FindBy(xpath = "(//span[@class='logged-in'][normalize-space()='Welcome, nicu bunea!'])[1]")
+    private WebElement welcomeUser;
+    @FindBy(xpath = "//div[contains(text(),'The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.')]")
+    private WebElement errorMesage;
 
 
     //Initializing the page Objects
-   public void loginValidProcess(String page1,String email,String pass, String page2){
+   public void loginValidProcess(String page1,String email,String pass,String text, String page2){
        pageMethods.validateTitlePage(page1);
        elementMethods.fillElement(username,email);
        elementMethods.fillElement(password,pass);
        elementMethods.clickElement(signInButton);
+       elementMethods.validateElementText(welcomeUser,text);
        pageMethods.validateTitlePage(page2);
    }
+
+    public void loginInValidProcess(String page1,String email,String pass,String error){
+        pageMethods.validateTitlePage(page1);
+        elementMethods.fillElement(username,email);
+        elementMethods.fillElement(password,pass);
+        elementMethods.clickElement(signInButton);
+        elementMethods.validateElementText(errorMesage,error);
+        pageMethods.validateTitlePage(page1);
+    }
+
+
 
 }

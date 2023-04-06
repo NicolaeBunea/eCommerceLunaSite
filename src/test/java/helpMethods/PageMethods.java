@@ -13,4 +13,8 @@ public class PageMethods {
         String actualPage= driver.getTitle();
         Assert.assertTrue("The expected page was not Displayed", value.equals(actualPage));
     }
+
+    public void navigateBack(){
+        driver.navigate().back();
+    }
 }
